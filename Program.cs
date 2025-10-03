@@ -11,11 +11,9 @@ Console.WriteLine(task.ProcessData("Файл 3"));
 stopwatch.Stop();
 Console.WriteLine($"Прошло: {stopwatch.ElapsedMilliseconds} мс\n");
 
-
 Console.WriteLine("Запускаем асинхронные методы: ");
 stopwatch.Restart();
-
-// Типо сначало получаем данные, которые нужны для последующей обработки
+// Типо получаем данные, которые нужны для последующей обработки
 Console.WriteLine(await task.ProcessDataAsync("данные для подфайлов"));
 
 var tasks = new List<Task<string>> {
@@ -25,13 +23,11 @@ var tasks = new List<Task<string>> {
 };
 
 string[] results = await Task.WhenAll(tasks);
+stopwatch.Stop();
 
 foreach (string result in results)
     Console.WriteLine(result);
-
-stopwatch.Stop();
 Console.WriteLine($"Прошло: {stopwatch.ElapsedMilliseconds} мс\n");
-
 
 Console.WriteLine("Все файлы обработаны");
 
