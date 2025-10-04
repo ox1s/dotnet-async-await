@@ -1,4 +1,4 @@
-public class MyTask
+public class OperationSimulator
 {
     public string ProcessData(string dataName)
     {
